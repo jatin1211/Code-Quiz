@@ -1,5 +1,4 @@
 var quizContainer = document.querySelector("#quiz");
-var resultsContainer = document.querySelector("#results");
 var scoreEl = document.querySelector("#score"); 
 let score = 0;
 let time = 40;
@@ -7,6 +6,8 @@ var questionEl = document.querySelector("#question");
 var responseEl = document.querySelector("#response");
 var bodyEl = document.querySelector("body");
 
+
+// Array containing 7 questions, multiple choices and correct answer
 let myQuestions = [
     {
         question:"Javascript is a ____ Language",
@@ -75,9 +76,7 @@ let myQuestions = [
 
 ];
 
-// submitButton.addEventListener("click", showResults);
-
-
+// Timer function for quiz with total time = 40 seconds
 const timerEl = document.querySelector("#timer");
 timerFunction = setInterval(countdown, 1000);
 function countdown(){
@@ -94,6 +93,9 @@ function countdown(){
 
 };
 i = 0;
+
+// Major Quiz functionality
+
 function askQuestion(){
 
     if(i == myQuestions.length){
@@ -104,7 +106,7 @@ function askQuestion(){
         
     }
    
-    //while(i < myQuestions.length){
+ 
     questionEl.innerHTML = `<h2> Quiz </h2>
     
     <p> ${myQuestions[i].question}</p>
@@ -115,13 +117,10 @@ function askQuestion(){
     </br>
     <li class="option" id = "c"> ${myQuestions[i].answers.c}</li>
     </ol>`; 
-    //let userAnswer = "";
-    //let count = 0;
+  
     a.addEventListener('click',function(){
         let userAnswer = "a";
-        // count = 1;
-        // console.log(count);
-        
+              
         if(userAnswer == myQuestions[i].correctAnswer){
             responseEl.innerHTML = `Correct`;
             score++;
@@ -138,7 +137,7 @@ function askQuestion(){
     });
     b.addEventListener('click',function(){
         userAnswer = "b";
-        //count = 1;
+        
         
         if(userAnswer == myQuestions[i].correctAnswer){
             responseEl.innerHTML = `Correct`;
@@ -177,16 +176,16 @@ function askQuestion(){
 
 askQuestion();
 
+
+// quizFinish function for final step
 function quizFinish(){
-    //responseEl.textContent = "Quiz Finish";
     let initial = prompt("Enter your Initials");
     bodyEl.style.backgroundColor = "pink";
     bodyEl.style.fontSize = "50px";
     bodyEl.innerHTML = `Quiz Finish
-    <p>Score=${score}/10</p>
+    <p>Score=${score}/7</p>
     <p>Quiz taker = ${initial}
     `;
-    
 
     console.log("finishhhhh");
 }
