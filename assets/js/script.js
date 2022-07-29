@@ -5,6 +5,7 @@ let time = 40;
 var questionEl = document.querySelector("#question");
 var responseEl = document.querySelector("#response");
 var bodyEl = document.querySelector("body");
+let clearEl =  document.querySelector("#clear");
 
 
 // Array containing 7 questions, multiple choices and correct answer
@@ -185,7 +186,50 @@ function quizFinish(){
     bodyEl.innerHTML = `Quiz Finish
     <p>Score=${score}/7</p>
     <p>Quiz taker = ${initial}
-    `;
+    `
+    ;
 
+    clearEl.textContent = "CLEAR SCORE";
+    bodyEl.appendChild(clearEl);
+    clearEl.addEventListener("click",function(){
+        localStorage.clear();
+        location.reload();  
+    });
+    
+    highScore(initial,score);
+    let scoreData = getHighScore();
+
+    for(i=0; i<scoreData.length; i++){
+        let scoreEl = document.createElement("ul");
+        scoreEl.innerHTML=`
+        <li>Name = ${scoreData[i][0]}</li>
+        <li>Score = ${scoreData[i][1]}</li>
+        `;
+        bodyEl.appendChild(scoreEl);
+    }
+    
     console.log("finishhhhh");
-}
+};
+
+function highScore(initial,score){
+
+    let highScore = [];
+    highScore =  getHighScore();
+    console.log(highScore);
+    highScore.push([initial,score]);
+    localStorage.setItem("currentScore", JSON.stringify(highScore));
+
+};
+
+function getHighScore(){
+
+    let currentHighScore = JSON.parse(localStorage.getItem("currentScore") );
+    if (!currentHighScore){
+        currentHighScore = [];
+    }
+    return currentHighScore;
+};
+
+
+
+

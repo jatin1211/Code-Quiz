@@ -1,3 +1,24 @@
 #timer{
     background-color: yellow;
 }
+
+.btn {
+    font-size: 30px;
+    font-weight: 700;
+    width: fit-content;
+    padding: 10px 30px;
+    cursor: pointer;
+    background-color: aqua;
+    border: solid 3px black;
+    border-radius: 2.5em;
+  }
+  
+  .btn:hover {
+    transform: scale(1.05);
+    background-color: darkslategrey;
+    color: azure;
+  }
+
+  .btn:empty{
+    display: none;
+  }
