@@ -98,16 +98,11 @@ i = 0;
 // Major Quiz functionality
 
 function askQuestion(){
-
     if(i == myQuestions.length){
-        
-
         quizFinish();
         return;
         
     }
-   
- 
     questionEl.innerHTML = `<h2> Quiz </h2>
     
     <p> ${myQuestions[i].question}</p>
@@ -125,12 +120,10 @@ function askQuestion(){
         if(userAnswer == myQuestions[i].correctAnswer){
             responseEl.innerHTML = `Correct`;
             score++;
-         
         }
         else{
             responseEl.innerHTML = `Wrong`;
             time -= 5;
-            
         }
         i++;
         askQuestion();
@@ -138,17 +131,13 @@ function askQuestion(){
     });
     b.addEventListener('click',function(){
         userAnswer = "b";
-        
-        
         if(userAnswer == myQuestions[i].correctAnswer){
             responseEl.innerHTML = `Correct`;
             score++;
-    
         }
         else{
             responseEl.innerHTML = `Wrong`;
             time -= 5;
-            
         }
         i++;
         askQuestion();
@@ -156,17 +145,14 @@ function askQuestion(){
     
     c.addEventListener('click',function(){
         userAnswer = "c";
-        
-       
+    
         if(userAnswer == myQuestions[i].correctAnswer){
             responseEl.innerHTML = `Correct`;
             score++;
-            
         }
         else{
             responseEl.innerHTML = `Wrong`;
             time -= 5;
-            
         }
         i++;
         askQuestion();
@@ -176,7 +162,6 @@ function askQuestion(){
 };
 
 askQuestion();
-
 
 // quizFinish function for final step
 function quizFinish(){

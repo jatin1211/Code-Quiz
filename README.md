@@ -1,6 +1,3 @@
-## Module-4-Challenge
-
-
 # Code Quiz
 
 ### Live Application : https://jatin1211.github.io/Module-4-Challenge/
