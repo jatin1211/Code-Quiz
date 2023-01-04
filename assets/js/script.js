@@ -7,7 +7,6 @@ var responseEl = document.querySelector("#response");
 var bodyEl = document.querySelector("body");
 let clearEl =  document.querySelector("#clear");
 
-
 // Array containing 7 questions, multiple choices and correct answer
 let myQuestions = [
     {
@@ -197,7 +196,6 @@ function quizFinish(){
 };
 
 function highScore(initial,score){
-
     let highScore = [];
     highScore =  getHighScore();
     console.log(highScore);
@@ -207,7 +205,6 @@ function highScore(initial,score){
 };
 
 function getHighScore(){
-
     let currentHighScore = JSON.parse(localStorage.getItem("currentScore") );
     if (!currentHighScore){
         currentHighScore = [];
